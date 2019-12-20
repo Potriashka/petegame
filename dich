@@ -1,0 +1,55 @@
+import pygame
+"""Окно"""
+window = pygame.display.set_mode((600, 600))
+pygame.display.set_caption("Game by Potriashka")
+"""Экран"""
+screen = pygame.Surface((600,600))
+a = pygame.Surface((40,40))
+
+x = 0
+y = 0
+
+a_r = True
+a_d = True
+start = True
+while start:
+    for e in pygame.event.get():
+        if e.type ==pygame.QUIT:    #Если нажат крестик то цикл прерывается = игра завершается
+            start = False
+
+        """движение"""
+    if a_r == True:
+        x += 1
+        if x > 560:
+            a_r = False
+    else:
+        x -= 1
+        if x < 0:
+            a_r = True
+
+    if a_d == True:
+        y +=1
+        if y > 560:
+            a_d = False
+    else:
+        y -=1
+        if y < 0:
+            a_d = True
+
+    """Управление направлением """
+    if e.type == pygame.KEYDOWN:
+        if e.key == pygame.K_a:
+            a_r = False
+        if e.key == pygame.K_d:
+            a_r = True
+        if e.key == pygame.K_w:
+            a_d = False
+        if e.key == pygame.K_s:
+            a_d = True
+    """Заливка фона"""
+    screen.fill((255, 225, 255))
+    a.fill((0,255,0))
+    """Отображение фона на экран"""
+    screen.blit(a,(x,y))
+    window.blit(screen,(0,0))
+    pygame.display.flip()
