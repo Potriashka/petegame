@@ -3,7 +3,7 @@ import randrange
 successes, failures = pygame.init()
 print("Initializing pygame: {0} successes and {1} failures.".format(successes, failures))
 
-screen = pygame.display.set_mode((480, 465))
+screen = pygame.display.set_mode((297, 343))
 clock = pygame.time.Clock()
 background_image = pygame.image.load('bg.jpg')
 player_image = pygame.image.load('idle.png')
@@ -22,8 +22,6 @@ left = ['left_1.png','left_2.png',
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-
-pygame.draw.rect(pygame, (0, 0, 0), (40, 60, random.randrangе(500), y - 5))
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -45,7 +43,7 @@ while running:
     screen.fill(BLACK)  # Fill the screen with background color.
     background_image = pygame.image.load('bg.jpg')
 
-    y = 0
+    pygame.draw.rect(pygame, (0, 0, 0), (40, 60, random.randrangе(500), y - 5, y = 0))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
